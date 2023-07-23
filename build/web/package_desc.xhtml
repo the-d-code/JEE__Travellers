@@ -1,0 +1,967 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        
+        <ui:include src="header.xhtml"></ui:include>
+        
+         <style>
+                .bann{
+                    position: relative;
+                    width: 100%;
+                    min-height: 1px;
+                    padding-right: 3px;
+                    padding-left: 3px;
+                }
+                body {
+
+                    overflow-x: hidden; /* Hide horizontal scrollbar */
+                }
+                .imghead{
+                    height: 300px !important;
+                    border-radius: 4px;
+                }
+                /*desc part css*/
+
+                body {
+                    font-size: 15px;
+                    color: #626672;
+                    background-color: #ffffff;
+                    font-family: "Poppins", sans-serif;
+                    font-weight: normal;
+                    font-style: normal;
+                    line-height: 1.6;
+                    -webkit-font-smoothing: antialiased;
+                    word-wrap: break-word;
+                }
+                .single-packge-wrap .package-content-detail ul li i {
+                    color: #3A78C9;
+                    margin-right: 8px;
+                    font-size: 13px;
+                }
+                .single-packge-wrap .rating-start {
+                    font-size: 16px;
+                }
+                .rating-start {
+                    display: table;
+                    position: relative;
+                    font-size: 12px;
+                    letter-spacing: 1.5px;
+                }
+                .rating-start span {
+                    display: block;
+                    left: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                }
+                .single-packge-wrap .package-price {
+                    background-color: #F8F8F8;
+
+                    -webkit-border-radius: 25px;
+                    -moz-border-radius: 25px;
+                    -ms-border-radius: 25px;
+                    border-radius: 25px;
+                    padding: 30px 35px;
+                    text-align: center;
+                    margin-left: 320px;
+                }
+                .single-packge-wrap .package-price .price-list {
+                    color: #626672;
+                    margin-bottom: 0;
+                    font-size: 14px;
+                }
+                .single-packge-wrap .package-price .price-list span {
+                    color: #3A78C9;
+                    font-size: 40px;
+                    font-weight: 800;
+                    display: block;
+                }
+                .single-packge-wrap .package-meta {
+                    border-top: 1px solid rgba(167, 167, 167, 0.2);
+                    border-bottom: 1px solid rgba(167, 167, 167, 0.2);
+                    margin: 40px 0;
+                    padding: 20px 0;
+                    position: relative;
+                    text-align: center;
+                }
+                .single-packge-wrap .package-meta ul li:first-child {
+                    padding-left: 0;
+                }
+                .single-packge-wrap .package-meta ul li {
+                    display: inline-block;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 1.1;
+                    padding: 0 12px;
+                    position: relative;
+                }
+                .single-packge-wrap .single-package-image {
+                    margin-bottom: 40px;
+                }
+                p {
+                    line-height: 1.6;
+                    margin: 0 0 15px;
+                    word-wrap: break-word;
+                }
+                .single-packge-wrap .package-content-detail .package-include {
+                    -webkit-border-radius: 25px;
+                    -moz-border-radius: 25px;
+                    -ms-border-radius: 25px;
+                    border-radius: 25px;
+                    padding: 30px 40px;
+                    margin: 40px 0;
+                }
+                .bg-light-grey {
+                    background-color: #F8F8F8;
+                }
+                .single-packge-wrap .package-content-detail .package-include ul {
+                    display: -webkit-box;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-flex-wrap: wrap;
+                    -moz-flex-wrap: wrap;
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                }
+                .single-packge-wrap .package-content-detail ul {
+                    padding: 0;
+                    margin: 0;
+                }
+                .single-packge-wrap .package-content-detail .package-include ul li {
+                    width: 50%;
+                }
+
+                .single-packge-wrap .package-content-detail ul li {
+                    list-style: none;
+                    margin-bottom: 8px;
+                }
+                /*.row>* {
+                    flex-shrink: 0;
+                    width: 100%;
+                    max-width: 100%;
+                    padding-right: calc(var(--bs-gutter-x) * .5);
+                    padding-left: calc(var(--bs-gutter-x) * .5);
+                    margin-top: var(--bs-gutter-y);
+                }*/
+                .sidebar .booking-form-wrap {
+                    margin-top: 40px;
+                }
+                .sidebar .booking-form-inner {
+                    -webkit-border-radius: 25px;
+                    -moz-border-radius: 25px;
+                    -ms-border-radius: 25px;
+                    border-radius: 25px;
+                    padding: 40px 30px;
+                }
+                .primary-bg {
+                    background-color: #3A78C9;
+                }
+                .sidebar .booking-form-inner h3, .sidebar .booking-form-inner p {
+                    text-align: center;
+                    color: #ffffff;
+                }
+                .sidebar .booking-form {
+                    display: -webkit-box;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-flex-wrap: wrap;
+                    -moz-flex-wrap: wrap;
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    margin: 0 -10px;
+                }
+                .sidebar .booking-form p input {
+                    width: 100%;
+                }
+
+                input[type=text], input[type=email], input[type=url], input[type=password], input[type=search], input[type=number], input[type=tel], input[type=range], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color], textarea, select {
+                    background-color: #F8F8F8;
+                    border: 1px solid #d9d9d9;
+                    -webkit-border-radius: 25px;
+                    -moz-border-radius: 25px;
+                    -ms-border-radius: 25px;
+                    border-radius: 25px;
+                    font-size: 14px;
+                    height: 55px;
+                    padding: 0 15px;
+                }
+                .sidebar .booking-form p.width-5 {
+                    width: 50%;
+                }
+
+                .sidebar .booking-form p {
+                    padding: 0 10px;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                .sidebar .booking-form-inner h3, .sidebar .booking-form-inner p {
+                    text-align: center;
+                    color: #ffffff;
+                }
+                .sidebar .package-list {
+                    background-image: url(http://demo.stairthemes.com/html/traveler/assets/images/banner-img1.jpg);
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -ms-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    -webkit-border-radius: 25px;
+                    -moz-border-radius: 25px;
+                    -ms-border-radius: 25px;
+                    border-radius: 25px;
+                    overflow: hidden;
+                    padding: 30px;
+                    position: relative;
+                    z-index: 1;
+                }
+                .overlay {
+                    background-color: rgba(0, 0, 0, 0.6);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                }
+                .sidebar .package-list h4 {
+                    background-color: #F8F8F8;
+                    -webkit-border-radius: 25px;
+                    -moz-border-radius: 25px;
+                    -ms-border-radius: 25px;
+                    border-radius: 25px;
+                    padding: 10px 20px;
+                    text-align: center;
+                    font-weight: 500;
+                    margin-bottom: 20px;
+                }
+                .sidebar .package-list ul {
+                    margin: 0;
+                    padding: 0;
+                }
+                .sidebar .package-list ul li {
+                    list-style: none;
+                    margin-bottom: 8px;
+                    padding-bottom: 8px;
+                    border-bottom: 1px solid rgba(167, 167, 167, 0.31);
+                }
+                .sidebar .package-list ul li a {
+                    color: #ffffff;
+                }
+                a {
+                    color: #0085BA;
+                    text-decoration: none;
+                    -webkit-transition: color 0.3s;
+                    -moz-transition: color 0.3s;
+                    -ms-transition: color 0.3s;
+                    -o-transition: color 0.3s;
+                    transition: color 0.3s;
+                }
+
+                a {
+                    background-color: transparent;
+                }
+                .sidebar .package-list ul li {
+                    list-style: none;
+                    margin-bottom: 8px;
+                    padding-bottom: 8px;
+                    border-bottom: 1px solid rgba(167, 167, 167, 0.31);
+                }
+                .tabs {
+                    display: flex;
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                .tabs li.active, .tabs li:hover {
+                    background-color: #fff;
+                    color: #01B3A7;
+                    border-bottom: 2px solid #01B3A7;
+                }
+                .tabs li {
+                    padding: 15px 15px 16px 17px;
+                    /* background-color: #f6f4f4; */
+                    border-right: 3px solid white;
+                    cursor: pointer;
+                    /* margin-bottom: 5px; */
+                    transition: 0.2s;
+                }
+                .content {
+                    border-radius: 6px;
+                    box-shadow: 0 1px 30px 0 rgb(0 0 0 / 10%);
+                    background-color: #ffffff;
+                }
+                .content > div {
+                    padding: 20px;
+                }
+                .content > div:not(:first-child) {
+                    display: none;
+                }
+                /*top header*/
+                .appendBottom15 {
+                    margin-bottom: 15px;
+                    margin-top: 25px !important;
+                }
+                .message-banner.hideMessageBanner {
+                    opacity: 0;
+                    transition: opacity 2s;
+                    transition-timing-function: ease-out;
+                }
+                .successBannerColor {
+                    background-color: #c1f1dd;
+                    color: #1a7971;
+                }
+                .message-banner {
+                    position: absolute;
+                    z-index: 10;
+                    height: 59px;
+                    text-align: center;
+                    top: 0;
+                    pointer-events: none;
+                    width: 100%;
+                    border-bottom-left-radius: 11px;
+                    border-bottom-right-radius: 11px;
+                }
+                .message-banner-text {
+                    margin-top: 14px;
+                    font-size: 20px;
+                }
+                .makeFlex {
+                    display: flex;
+                }
+                .topHeading {
+                    color: #000;
+                    font-size: 29px;
+                    font-weight: var(--font-weight, 900);
+                    margin-right: 10px;
+                    line-height: 36px;
+                }
+                .topSubBar {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .topSubHead {
+                    color: #6d7278;
+                    font-weight: 700;
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    margin-top: 2px;
+                }
+                .nightCountTag {
+                    width: max-content;
+                    height: 20px;
+                    padding: 3px 5px 5px 5px;
+                    border-radius: 3px;
+                    background-color: #26b5a9;
+                    font-size: 11px;
+                    color: #fff;
+                    margin-right: 3px;
+                }
+                .packageTypeTag {
+                    display: flex;
+                    width: max-content;
+                    height: 20px;
+                    padding: 4px 5px 0px 5px;
+                    border-radius: 3px;
+                    background-color: #09080d;
+                    margin-right: 7px;
+                }
+                .packageTypeTag {
+                    position: relative;
+                }
+                .flexiPackage {
+                    background-position: -194px -405px;
+                    width: 20px;
+                    height: 20px;
+                    top: -4px;
+                    position: relative;
+                }
+                .whiteText {
+                    color: #ffffff;
+                }
+                .font11 {
+                    font-size: 11px;
+                    line-height: 11px;
+                }
+                .topSection {
+                    position: sticky;
+                    position: -webkit-sticky;
+                    box-shadow: 0 1px 30px 0 rgb(0 0 0 / 10%);
+                    background-color: #ffffff;
+                    top: -294px;
+                    background: white;
+                    margin: -17px 0px 25px 0px;
+                    z-index: 5;
+                    border-radius: 4px;
+                }
+                /*billing design*/
+                .pakageDtlWrap {
+                    border-radius: 4px;
+                    box-shadow: 0 1px 30px 0 rgb(0 0 0 / 10%);
+                    border: solid 1px #e7e7e7;
+                    background-color: #ffffff;
+                    position: sticky;
+                    position: -webkit-sticky;
+                    top: 60px;
+                    z-index: 5;
+                }
+                .pakageDtlWrapTop {
+                    border-bottom: solid 1px #e7e7e7;
+                    background: var(--details-right-section-header-bg, #eaf5ff);
+                    padding: 20px;
+                    position: relative;
+                }
+                .slashedPrice {
+                    color: #9b9b9b;
+                    font-size: 12px;
+                    text-decoration: line-through;
+                }
+                .font12 {
+                    font-size: 12px;
+                    line-height: 12px;
+                }
+                .latoBlack {
+                    font-weight: 900;
+                }
+                .font24 {
+                    font-size: 24px;
+                    line-height: 24px;
+                }
+                :root .greyText {
+                    --borderColor: #9b9b9b;
+                }
+                .greyText {
+                    color: #9b9b9b;
+                }
+                .font10 {
+                    font-size: 10px;
+                    line-height: 10px;
+                }
+                .pakageOfftag {
+                    border-radius: 2px;
+                    background: var(--details-right-section-header-badge-bg, linear-gradient(247deg, #ff3e5e, #ff6d3f));
+                    padding: 4px 5px;
+                    position: absolute;
+                    color: #fff;
+                    font-size: 10px;
+                    right: 20px;
+                    top: 10px;
+                }
+                .pakageDtlRow {
+                    padding: 16px 20px 0px 20px;
+                    border-bottom: 1px solid #e7e7e7;
+                }
+                .makeFlex {
+                    display: flex;
+                }
+                .appendBottom6 {
+                    margin-bottom: 6px;
+                }
+                .holidaySprite.flexiDateIcon {
+                    background-position: -202px -216px;
+                    background-size: 480px 480px;
+                }
+                .icon24 {
+                    width: 24px;
+                    height: 24px;
+                }
+                .makeFlex.spaceBetween {
+                    justify-content: space-between;
+                }
+                .theme-wrapper .link.link-secondary {
+                    color: var(--color-link-secondary);
+                }
+                .latoBold {
+                    font-weight: 700;
+                }
+                .pakageDtlCta {
+                    padding: 10px 20px 18px 20px;
+                    text-align: center;
+                    border-bottom: 1px solid #e7e7e7;
+                    margin: 4px 0 0 0;
+                }
+                /*hotel*/
+                .dayplan-section {
+                    border-bottom: solid 1px #e7e7e7;
+                }
+                .highlight {
+                    padding: 0px 25px 10px 25px;
+                }
+                .hotel-row-header {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px 0;
+                }
+                .hotel-row-body {
+                    display: flex;
+                    flex-direction: row;
+                }
+                .hotel-row-image-wrapper {
+                    width: 243px;
+                    border-radius: 4px;
+                    margin-right: 15px;
+                    box-sizing: border-box;
+                    align-self: flex-start;
+                    display: flex;
+                    position: relative;
+                }
+                .okRating {
+                    background-color: rgb(36, 176, 151);
+                }
+               
+                .hotel-row-details {
+                    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    height: 195px;
+    flex: 1;
+                }
+                .makeFlex.hrtlCenter {
+                    align-items: center;
+                }
+                .makeFlex.row {
+                    flex-direction: row;
+                }
+                .hotel-row-hotel-tag {
+                    font-size: 10px;
+                    color: #fff;
+                    font-weight: bold;
+                    text-transform: capitalize;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 10px;
+                    margin-right: 10px;
+                    height: 20px;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                    background-image: linear-gradient(to left, #6a11cb, #2575fc);
+                }
+                .hotel-row-details-title {
+                    color: #000;
+    font-size: 16px;
+    font-weight: 900;
+    margin-left: 42px;
+    margin-top: -15px !important;
+                }
+                .holidaySprite.rating_blank {
+                    width: 60px;
+                    height: 12px;
+                    background-position: 0 -349px;
+                }
+                .holidaySprite.ratingThree {
+                    width: 37px;
+                }
+                .holidaySprite.rating_fill {
+                    width: 60px;
+                    height: 12px;
+                    background-position: 0 -337px;
+                }
+                .holidaySprite.rating_blank {
+                    width: 60px;
+                    height: 12px;
+                    background-position: 0 -349px;
+                }
+                .hotel-row-text-sm {
+                    color: #4a4a4a;
+                    font-size: 11px;
+                }
+                .hotel-row-text-date {
+                    color: #4a4a4a;
+                    font-size: 12px;
+                    margin: 5px 0;
+                    display: flex;
+                }
+                .hotel-row-text-label {
+                    color: #9b9b9b;
+                    font-size: 12px;
+                    display: inline-block;
+                    margin: 5px 10px 5px 0;
+                }
+                .hotel-row-text-value {
+                    color: #4a4a4a;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+                .margin8p {
+    /* line-height: 1.6; */
+    margin: 0 0 8px;
+    word-wrap: break-word;
+}
+            </style>
+            
+                 
+    </h:head>
+    <h:body>
+        
+        
+        
+ <main id="content" class="site-main">
+            <section class="contact-inner-page">
+                <!-- ***Inner Banner html start form here*** -->
+                <div class="inner-banner-wrap">
+                    <div class="inner-baner-container" style="background-image: url(assets/images/img7.jpg);">
+                        <div class="container">
+                            <div class="inner-banner-content">
+                                <h1 class="page-title">DETAILS OF TOUR</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>        
+        
+ <div class="page">
+                <!-- RD Navbar-->
+                <!--<c:set>-->
+                <c:forEach items="#{UserMangedBean.packDesc}" var="H">
+
+                    <div class="topSection">
+                        <div class="container" >
+                            <div class="row">
+                                <div class="appendBottom15 pageHeading">
+                                    <div class="message-banner hideMessageBanner successBannerColor">
+                                        <p class="message-banner-text"></p>
+                                    </div>
+                                    <div class="makeFlex">
+                                        <span class="topHeading">#{H.packageName}</span>
+                                    </div>
+                                    <div class="topSubBar">
+                                        <div class="topSubHead">
+                                            <span class="nightCountTag"> #{H.noOfNights} Nights  /  #{H.noOfDays} Days</span>
+                                            <div class="packageTypeTag">
+                                                <span class="holidaySprite  flexiPackage"></span>
+                                                <span class="font11 whiteText widthMaxContent ">4 Star Package</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:0px !important;">
+                                <div class="col-md-7 bann"><img src="PackageUpload/#{H.image1}" alt="" width="100%" class="imghead"/></div>
+
+                                <div class="col-md-3 bann" style=""><img src="PackageUpload/#{H.image2}" alt="" width="100%" class="imghead"/></div>
+                                <div class="col-md-2 bann">
+                                    <div class="col-12 bann"><img src="PackageUpload/#{H.image3}" alt="" width="100%" style="height: 148px !important; border-radius: 4px;"/></div>
+                                    <div class="col-12 bann"><img src="PackageUpload/#{H.image4}" alt="" width="100%" style="padding-top: 7px;height: 152px !important;border-radius: 4px 4px 4px 4px;"/></div>
+                                </div>
+                            </div>
+                            <ul class="tabs">
+                                <li class="active" data-cont=".one">Information</li>
+                                <li data-cont=".two">Bus And Hotel</li>
+                                <!--<li data-cont=".three">Rate And Review</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                    <!--      </div>-->
+                    <!--        </div>-->
+                    <!-- desc part-->
+                    <div class="container">
+                        <div class="inner-package-detail-wrap">
+                            <!--                  <div class="container">-->
+
+                            <div class="row">
+
+                                <div class="col-lg-8 primary right-sidebar">
+                                    <div class="content">
+                                        <div class="one"> <div class="single-packge-wrap">
+                                                <div class="single-package-head d-flex align-items-center">
+                                                    <div class="package-title">
+                                                        <h2>#{H.packageName}</h2>
+                                                        <div class="rating-start-wrap">
+                                                            <div class="rating-start">
+                                                                <span style="width: 80%"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="package-price">
+                                                        <h6 class="price-list">
+                                                            <span>&#8377;#{H.packageCharge}</span>
+                                                            / per person
+                                                        </h6>
+                                                    </div>
+                                                </div>
+
+                                                <div class="package-meta">
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fas fa-clock"></i>
+                                                            #{H.noOfDays}D/#{H.noOfNights}N
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <i class="fas fa-swimmer"></i>
+                                                            #{H.categoryID.categoryName}
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="fas fa-map-marker-alt"></i>
+                                                            #{H.stateID.stateName}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <figure class="single-package-image">
+                                                    <img src="PackageUpload/#{H.image2}" alt=""/>
+                                                </figure>
+                                                <div class="package-content-detail">
+                                                    <article class="package-overview">
+                                                        <h3>Package Details</h3>
+                                                        <p>#{H.scheduleDescription}</p>
+                                                        <br/>
+                                                        <p>The beautiful land of Goa has become India’s favourite holiday destination ever since it gained its independence from the Portuguese. Rising to prominence with the boho and hipster culture, Goa tourism has achieved a legendary status over the years.</p>
+                                                    </article>
+                                                    <article class="package-include bg-light-grey">
+                                                        <h3>INCLUDE &amp; EXCLUDE :</h3>
+                                                        <ul>
+                                                            <li><i class="fas fa-check"></i>Specialized bilingual guide</li>
+                                                            <li><i class="fas fa-times"></i>Guide Service Fee</li>
+                                                            <li><i class="fas fa-check"></i>Private Transport</li>
+                                                            <li><i class="fas fa-times"></i>Room Service Fees</li>
+                                                            <li><i class="fas fa-check"></i>Entrance Fees</li>
+                                                            <li><i class="fas fa-times"></i>Driver Service Fee</li>
+                                                            <li><i class="fas fa-check"></i>Breakfast And Lunch Box</li>
+                                                            <li><i class="fas fa-times"></i>Any Private Expenses</li>
+                                                        </ul>
+                                                    </article>
+                                                    <article class="package-ininerary">
+                                                        <h3>Category Detail : #{H.categoryID.categoryName}</h3>
+                                                        <p>#{H.categoryID.description}</p>
+                                                        <h4>Tour Detail</h4>
+                                                        <br/>
+                                                        <ul>
+                                                            <li>
+                                                                <i aria-hidden="true" class="fas fa-dot-circle"></i>
+                                                                <span>DAY 1</span>
+                                                                Departure at the station and arrival at the hotel
+                                                            </li>
+                                                            <li>
+                                                                <i aria-hidden="true" class="fas fa-dot-circle"></i>
+                                                                <span>DAY 2</span>
+                                                                Visit the main Places and lunch included
+                                                            </li>
+                                                            <li>
+                                                                <i aria-hidden="true" class="fas fa-dot-circle"></i>
+                                                                <span>In Between Days</span>
+                                                                Excursion in the natural oasis and picnic
+                                                            </li>
+                                                            <li>
+                                                                <i aria-hidden="true" class="fas fa-dot-circle"></i>
+                                                                <span>Last Day</span>
+                                                                Transfer to the Station and return to the agency
+                                                            </li>
+                                                        </ul>
+                                                    </article>
+                                                </div>
+                                            </div></div>
+                                        <div class="two">
+                                            <!--hotel-->
+                                            <div class="dayplan-section">
+<h3>Hotel details</h3>
+                                                <div class="row">
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-4 bann"><img src="AdminUpload/#{H.hotelID.image1}" alt="" width="100%" style="border-radius:4px; height: 170px;"/></div>
+
+                                                    <div class="col-md-3 bann">
+                                                        <div class="col-12 bann"><img src="AdminUpload/#{H.hotelID.image2}" alt="" width="100%" style="height: 85px !important; border-radius: 4px;"/></div>
+                                                        <div class="col-12 bann"><img src="AdminUpload/#{H.hotelID.image3}" alt="" width="100%" style="padding-top: 3px;height: 85px !important;border-radius: 4px 4px 4px 4px;"/></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <!--hotel-->
+                                                       <div class="hotel-row-details">
+                                                            <div class="makeFlex row hrtlCenter">
+                                                                <p class="hotel-row-hotel-tag">Resort</p>
+                                                            </div>
+                                                           <p class="hotel-row-details-title margin8p">#{H.hotelID.hotelName}</p>
+                                                           <p class="hotel-row-text-sm margin8p">#{H.hotelID.stateID.stateName} , #{H.hotelID.cityID.cityName}</p>
+                                                            <div class="latoBold font11 greyText lineHeight14 ">
+                                                                <p class="margin8p">Best Hotel In #{H.hotelID.cityID.cityName}</p></div>
+                                                            <p class="hotel-row-text-date margin8p">
+                                                                <span class="holidaySprite hotelCardCalendar"></span>#{H.hotelID.description}</p>
+                                                                <p style="margin-top:0px; margin: 0 0 0px;">
+                                                                <span class="hotel-row-text-label">Includes</span>
+                                                                <span class="hotel-row-text-value">Breakfast</span>
+                                                            </p>
+                                                                <p style="margin-top:0px; margin: 0 0 0px;">
+                                                                    <span class="hotel-row-text-label">Cost Per Room</span>
+                                                                    <span class="hotel-row-text-value">#{H.hotelID.costPerRoom}</span>
+                                                                
+                                                            </p>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                             
+                                            </div>
+                                            <!--bus-->
+                                            <div class="dayplan-section" style="margin-top:10px;">
+<h3>Bus Details</h3>
+                                                <div class="row">
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-4 bann"><img src="BusUpload/#{H.busID.image1}" alt="" width="100%" style="border-radius:4px; height: 170px;"/></div>
+
+                                                    <div class="col-md-3 bann">
+                                                        <div class="col-12 bann"><img src="BusUpload/#{H.busID.image2}" alt="" width="100%" style="height: 85px !important; border-radius: 4px;"/></div>
+                                                        <div class="col-12 bann"><img src="BusUpload/#{H.busID.image2}" alt="" width="100%" style="padding-top: 3px;height: 85px !important;border-radius: 4px 4px 4px 4px;"/></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <!--hotel-->
+                                                       <div class="hotel-row-details">
+                                                            <div class="makeFlex row hrtlCenter">
+                                                                <p class="hotel-row-hotel-tag">Transportation</p>
+                                                            </div>
+                                                           <p class="hotel-row-details-title margin8p">#{H.busID.busName}</p>
+                                                           <p class="hotel-row-text-sm margin8p">#{H.busID.fromCityID.cityName} , #{H.busID.toCityID.cityName}</p>
+                                                            <div class="latoBold font11 greyText lineHeight14 ">
+                                                                <p class="margin8p">Best Transport In #{H.busID.fromCityID.cityName}</p></div>
+                                                            <p class="hotel-row-text-date margin8p">
+                                                                <span class="holidaySprite hotelCardCalendar"></span>#{H.busID.description}</p>
+                                                                <p style="margin-top:0px; margin: 0 0 0px;">
+                                                                <span class="hotel-row-text-label">Includes : </span>
+                                                                <span class="hotel-row-text-value">Picking Baggage</span>
+                                                            </p>
+                                                                <p style="margin-top:0px; margin: 0 0 0px;">
+                                                                    <span class="hotel-row-text-label">Cost Per Seat : </span>
+                                                                    <span class="hotel-row-text-value">#{H.busID.costPerSeat}</span>
+                                                                
+                                                            </p>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                             
+                                            </div>
+                                        </div>
+                                        <div class="three">
+<!--                                            Content 3-->
+  <h:form style="height:380px;">
+          <h:inputText disabled="true" value="Rating Review Of #{H.packageName}" style="margin-bottom: 20px;
+    border-bottom: 1px ridge;
+    background: white;
+    color: #01B3A7;
+    font-size: 26px;
+    width: 100%;
+    text-align: center;"/>
+<h:selectOneRadio value="#{UserMangedBean.ratingStar}" style="padding-left:70px;">
+                                <f:selectItem itemValue="1" itemLabel="Not Good" /><br/>
+                                <f:selectItem itemValue="2" itemLabel="Good" /><br/>
+                                <f:selectItem itemValue="3" itemLabel="Very Good" /><br/>
+                                <f:selectItem itemValue="4" itemLabel="Excellent" /><br/>
+</h:selectOneRadio><br></br><br></br>
+                             <h:inputTextarea value="#{UserMangedBean.description}"  style="height: 100px; width: 450px;margin-left: -40px;font-size: 19px;
+    color: revert;"/>
+<!--                             <input id = "jsfForm:hiddenField" name = "jsfForm:hiddenField"  value="#{H.packageID}"/>-->
+                             <h:commandButton class="btn btn-primary py-3 px-5" value="SUBMIT" action="#{UserMangedBean.addpackageRating(H.packageID)}"/>
+                        </h:form>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="sidebar">
+
+                                        <div class="pakageDtlWrap appendBottom20">
+                                            <div class="pakageDtlWrapTop">
+                                                <p class="slashedPrice">₹ #{H.packageCharge+(H.packageCharge*20/100)}</p>
+                                                <p class="font12">
+                                                    <span id="price_detail" class="font24 latoBlack">
+                                                        <span>₹ #{H.packageCharge}</span>
+
+                                                    </span> per person*</p>
+                                                <p class="font10 greyText">*Excluding applicable taxes</p>
+                                                <span class="pakageOfftag">20% OFF</span>
+                                            </div><div class="pakageDtlWrapBottom">
+                                                <div class="pakageDtlRow">
+                                                    <div class="makeFlex appendBottom6">
+                                                        <span class="holidaySprite icon24 flexiDateIcon"></span>
+                                                        <div class="flexOne makeFlex spaceBetween">
+                                                            <span class="latoBlack">#{H.fromDate.date}/#{H.fromDate.month} - #{H.toDate.date}/#{H.toDate.month}</span>
+                                                            <span class="latoBold pointer link link-secondary"> Modify</span>
+                                                        </div></div></div><div class="pakageDtlCta" id="continue">
+                                                    <h:form>
+                                                        <h:commandButton class="primaryBtn fill btn btn-primary btn-sm" value="PROCEED TO BOOK" action="#{UserMangedBean.GoToBooking(H)}"/>
+
+                                                    </h:form>
+
+                                                </div></div></div>
+                                        <!--                                        <div class="package-map">
+                                                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.540423056448!2d-0.12174238402827448!3d51.50330061882345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2snp!4v1646314586610!5m2!1sen!2snp" width="600" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                                                                </div>-->
+                                        <div class="package-list" style="margin-top:10px;">
+                                            <div class="overlay"></div>
+                                            <h4>MORE PACKAGES</h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="#"><i aria-hidden="true" class="icon icon-arrow-right-circle"></i>Vacation Packages</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i aria-hidden="true" class="icon icon-arrow-right-circle"></i>Homeymoon Packages</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i aria-hidden="true" class="icon icon-arrow-right-circle"></i>New Year Packages</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i aria-hidden="true" class="icon icon-arrow-right-circle"></i>Weekend Packages</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </c:forEach>
+            </div>
+        
+        
+            </section>
+ </main>   
+        
+        
+        
+        
+        <script>
+            let tabs = document.querySelectorAll(".tabs li");
+            let tabsArray = Array.from(tabs);
+            let divs = document.querySelectorAll(".content > div");
+            let divsArray = Array.from(divs);
+
+// console.log(tabsArray);
+
+            tabsArray.forEach((ele) => {
+                ele.addEventListener("click", function (e) {
+                    // console.log(ele);
+                    tabsArray.forEach((ele) => {
+                        ele.classList.remove("active");
+                    });
+                    e.currentTarget.classList.add("active");
+                    divsArray.forEach((div) => {
+                        div.style.display = "none";
+                    });
+                    // console.log(e.currentTarget.dataset.cont);
+                    document.querySelector(e.currentTarget.dataset.cont).style.display = "block";
+                });
+            });
+        </script>
+   
+        
+        
+        
+        
+        
+            
+        <ui:include src="Footer.xhtml"></ui:include>
+    </h:body>
+</html>
+

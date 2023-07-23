@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/admin2/AdminTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <style>
+            figure.snip1208 {
+                font-family: 'Raleway', Arial, sans-serif;
+                color: #fff;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 1px 30px 0 rgb(0 0 0 / 10%);
+                border-radius: 6px;
+                margin: 10px 19px 10px 30px;
+                min-width: 220px;
+                max-width: 310px;
+                width: 100%;
+                background-color: #ffffff;
+                color: #000000;
+                text-align: left;
+                font-size: 16px;
+            }
+            figure.snip1208 * {
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+            figure.snip1208 img {
+                max-width: 100%;
+                vertical-align: top;
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                -webkit-transition: all 0.4s ease;
+                transition: all 0.4s ease;
+            }
+            figure.snip1208 figcaption {
+                padding: 20px;
+                position: relative;
+            }
+            figure.snip1208 .date,
+            figure.snip1208 i {
+                background-color: #20638F;
+                top: 25px;
+                color: #fff;
+                left: 25px;
+                min-height: 60px;
+                min-width: 60px;
+                position: absolute;
+                text-align: center;
+            }
+            figure.snip1208 .date {
+                -webkit-transition-delay: 0.2s;
+                transition-delay: 0.2s;
+                font-size: 22px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            figure.snip1208 .date span {
+                display: block;
+                line-height: 30px;
+            }
+            figure.snip1208 .date .month {
+                font-size: 16px;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            figure.snip1208 i {
+                line-height: 60px;
+                font-size: 18px;
+                -webkit-transform: rotateY(-90deg);
+                transform: rotateY(-90deg);
+                -webkit-transition-delay: 0s;
+                transition-delay: 0s;
+            }
+            figure.snip1208 h3,
+            figure.snip1208 p {
+                margin: 0;
+                padding: 0;
+            }
+            figure.snip1208 h3 {
+                margin-bottom: 10px;
+                display: inline-block;
+                font-weight: 600;
+                color: #333333;
+                text-transform: uppercase;
+            }
+            figure.snip1208 p {
+                font-size: 0.8em;
+                /*                margin-bottom: 20px;
+                                line-height: 1.6em;*/
+            }
+            figure.snip1208 button {
+                border: medium none;
+                padding: 10px 20px;
+                background-color: #20638F;
+                font-weight: 800;
+                color: #ffffff;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-size: 0.8em;
+            }
+            figure.snip1208 a {
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                position: absolute;
+                z-index: 1;
+            }
+            figure.snip1208:hover img,
+            figure.snip1208.hover img {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+            /*            figure.snip1208:hover .date,
+                        figure.snip1208.hover .date {
+                            -webkit-transform: rotateY(90deg);
+                            transform: rotateY(90deg);
+                            -webkit-transition-delay: 0s;
+                            transition-delay: 0s;
+                        }*/
+            figure.snip1208:hover .date,
+            figure.snip1208.hover .date {
+                -webkit-transform: rotateY(90deg);
+                transform: rotateY(90deg);
+                -webkit-transition-delay: 0s;
+                transition-delay: 0s;
+            }
+            figure.snip1208:hover i,
+            figure.snip1208.hover i {
+                -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+                -webkit-transition-delay: 0.2s;
+                transition-delay: 0.2s;
+            }
+            figure.snip1208:hover button,
+            figure.snip1208.hover button {
+                background-color: #20638F;
+            }
+            .updateicon
+            {
+                color: grey;
+            }
+            td{
+                padding: 7px;
+
+            }
+            th{
+                font-size: 18px;
+                border-bottom: 3px ridge #e1e1e1;
+            }
+            .daynight{
+                background-image: linear-gradient(to left, #289199, #1358cd);
+            }
+            .attractionWrapper {
+                border-top: 1px ridge #e5dddd;
+                /* border-style: ridge; */
+                padding-top: 5px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .sightSeeingWrapper {
+                width: 70%;
+                font-size: var(--card-sight-seeing-font-size, 14px);
+            }
+            .sightSeeingName {
+                list-style-type: disc;
+                margin-bottom: 5px;
+                width: 90%;
+                word-wrap: break-word;
+            }
+            .priceWrapper {
+                margin-top: -5px;
+                position: absolute;
+                right: 30px;
+                text-align: right;
+            }
+            .priceWrapper .price-actual {
+                font-size: var(--card-actual-price-font-size, 12px);
+            }
+            .appendBottom2 {
+                margin-top: 5px;
+            }
+            .overflowDash
+            {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        </style>
+        <div class="main-panel">
+            <div class="content">
+                <div class="page-inner">
+                    <div class="row">
+                        <div class="col-lg-12 landingCard landingCardheader">
+                            <h1>Packages List</h1>
+                        </div>
+                    </div>
+                    <f:view>
+                        <div align="right">
+                            <h:link class="btn btn-primary" value="Insert" outcome="InsertPackage"></h:link>
+                        </div> 
+                        <h:form>
+                            <div class="row">
+                <div class="col-lg-10">
+                    <h:outputLabel value="Select Category to show Packages"></h:outputLabel>
+                    <h:selectOneMenu class="form-control" value="#{adminManagedBean.admincatID}">
+                       <f:selectItems value="#{adminManagedBean.categoryList()}" var="b"
+                                       itemLabel="#{b.categoryName}"
+                                       itemValue="#{b.categoryID}"></f:selectItems>
+                    </h:selectOneMenu><br/>
+                    </div>
+                        <div class="col-lg-2">
+                            <h:commandButton class="btn btn-primary" style="margin-top: 19px;margin-left: -20px;" value="Search" action="#{adminManagedBean.getPackageByCatIDForAdmin()}"></h:commandButton>
+
+                        </div>
+                        </div>
+                            <div class="row">
+                                <c:forEach items="#{adminManagedBean.findAllPackage()}" var="H">
+                                <figure class="snip1208">
+                                    <img src="../PackageUpload/#{H.image1}" alt="" style="background-color:grey;"/>
+                                    <div class="date"><span class="month">#{H.fromDate.date} / #{H.fromDate.month}</span><span class="month">#{H.toDate.date} / #{H.toDate.month}</span></div>
+                                    <i class="ion-film-marker"><span class="month">#{H.noOfDays}D </span><span class="month">#{H.noOfNights}N</span></i>
+                                    <!--                                <div class="date dt1" style="opacity:0;"><span class="day">28</span><span class="month">Oct</span></div><i class="ion-film-marker"></i>-->
+                                    <!--<span class="daynight">hey</span>-->
+                                    <figcaption>
+
+                                        <h3>#{H.packageName}</h3>
+
+                                        <p class="overflowDash">
+                                            #{H.scheduleDescription}
+                                        </p>
+                                        <div class="attractionWrapper">
+                                            <ul class="sightSeeingWrapper" style="padding-left: 12px;">
+                                                <li class="sightSeeingName" ><b>HotelName : </b>#{H.hotelID.hotelName}</li>
+                                                <li class="sightSeeingName"><b>BusName : </b>#{H.busID.busName}</li>
+                                            </ul>
+                                            <div class="priceWrapper">
+                                                <p class="price-actual appendBottom2"><del>₹#{H.packageCharge*120/100}</del></p>
+                                                <p class="price-current blackText latoBlack" style="margin-top:0px; margin: 0px">₹#{H.packageCharge}</p>
+                                                <p class="font12 greyText" style="    margin-top: -13px; margin: 0px">per person</p>
+                                            </div></div>
+                                        <!--                                        <button>Read More</button>-->
+                                    </figcaption><a href="#"></a>
+                                </figure>
+                            </c:forEach>
+                            </div>
+                        </h:form>
+                    </f:view>
+
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

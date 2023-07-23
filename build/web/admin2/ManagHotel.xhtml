@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/admin2/AdminTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <style>
+            .updateicon
+            {
+                   color: grey;
+            }
+            td{
+                padding: 7px;
+             
+            }
+            th{
+                font-size: 18px;
+                border-bottom: 3px ridge #e1e1e1;
+            }
+            </style>
+<div class="main-panel">
+    <div class="content">
+	<div class="page-inner makeFlex">
+            <div class="row">
+                <div class="col-lg-12 landingCard landingCardheader">
+                    <h1>Hotel List</h1>
+                </div>
+            </div><!--/.row-->
+            <f:view>
+    <h:form class="row landingCard">
+              
+        <div align="right">
+            <h:link class="btn btn-primary" value="Insert" outcome="InsertHotel"></h:link>
+        </div>
+         <table data-toggle="table"  data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="Name" data-sortable="true">Name</th>
+                                            <th data-field="Seats"  data-sortable="true">Cost per Room</th>
+                                            <th data-field="City" data-sortable="true">State</th>
+                                             <th data-field="State" data-sortable="true">City</th>
+                                            <th data-field="Picture1" data-sortable="true">Picture</th>
+                                            <th data-field="Picture2" data-sortable="true">Picture</th>
+                                            <th data-field="Picture3" data-sortable="true">Picture</th>
+<!--                                            <th data-field="Description" data-sortable="true">Description</th>-->
+<th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+             <c:forEach items="#{adminManagedBean.findAllHotel()}" var="H">
+                                    <tr>
+                                        <td>#{H.hotelName}</td>                                        
+                                        <td>#{H.costPerRoom}</td>
+                                        <td>#{H.stateID.stateName}</td>
+                                        <td>#{H.cityID.cityName}</td>      
+                                        
+                                        <td><img src="../AdminUpload/#{H.image1}" height="100" width="100"/></td>
+                                        <td><img src="../AdminUpload/#{H.image2}" height="100" width="100"/></td>
+                                        <td><img src="../AdminUpload/#{H.image3}" height="100" width="100"/></td>
+<!--                                        <td>#{H.description}</td>-->
+                                        <!--<td><h:commandLink type="hidden" class="fa fa-pencil fa-2x updateicon" action="#{adminManagedBean.editHotel(H.hotelID)}"></h:commandLink></td>-->
+                                        <td><h:commandLink class="fa fa-trash fa-2x updateicon" onclick="return confirm('Are you sure want to delete?')"
+                                                           action="#{adminManagedBean.deleteHotel(H)}"></h:commandLink>
+</td>
+                                    </tr>
+                                    </c:forEach>
+                                </table>
+<!--        <h:dataTable value="#{adminManagedBean.findAllHotel()}" var="item">
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="HotelName"/>
+                </f:facet>
+                <h:outputText value="#{item.hotelName}"/>
+            </h:column>
+            <h:column>
+                
+                <f:facet name="header">
+                    <h:outputText value="Description"/>
+                </f:facet>
+                <h:outputText value="#{item.description}"/>
+            </h:column>
+            <h:column>
+                <h:commandLink class="fa fa-pencil fa-2x updateicon" action="#{adminManagedBean.edit(item)}"></h:commandLink>
+                
+           </h:column>
+           <h:column>
+
+            <h:commandLink class="fa fa-trash fa-2x updateicon" onclick="return confirm('Are you sure want to delete?')"
+                           action="#{adminManagedBean.delete(item)}"></h:commandLink>
+           </h:column>
+            
+        </h:dataTable>-->
+    </h:form>
+</f:view>
+            
+        </div><!--/.main-->
+    </div>
+</div>
+	    </ui:define>
+</ui:composition>

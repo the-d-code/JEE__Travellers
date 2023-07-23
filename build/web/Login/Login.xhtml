@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/Login/LoginTemplate.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:define name="content">
+        <style>
+            .form-control{
+                width: 92%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    }
+    .form-group{
+/*            margin-bottom: -23px;
+    margin-top: 10px;*/
+    }
+            </style>
+<h1 class="title-agile text-center">login form</h1>
+    <div class="content-w3ls">
+        <div class="agileits-grid">
+            <div class="content-top-agile">
+                <h2>Login to core</h2>
+            </div>
+            <div class="content-bottom">
+                <h:form>
+                    
+                    
+                    <div class="form-group">
+                            <h:inputText id="emailID" class="form-control" a:placeholder="EmailID" style="margin-top: 37px;" value="#{UserMangedBean.user.emailID}" title="EmailID" required="true" requiredMessage="The EmailID field is required."/>
+                           <br/>
+    	                       <h:message for="emailID" style="color:red" />
+    	                    <br/>                            
+                        </div>
+                        <div class="form-group">
+                            <h:inputSecret class="form-control"  id="password-field" value="#{UserMangedBean.user.password}" a:placeholder="Password"/>
+                            <!--<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>-->
+                           <br/>
+    	                       <h:message for="password-field" style="color:red" />
+    	                    <br/>                     
+                        </div>
+                    <div class="wthree-field">
+                        <h:commandButton action="#{UserMangedBean.loginUser()}" value="Login" />
+                    </div>
+                    <ul class="list-login">
+                        <li class="switch-agileits">
+                            <label class="switch">
+                                <input type="checkbox"/>
+                                <span class="slider round"></span>
+                                keep me signed in
+                            </label>
+                        </li>
+<!--                        <li>
+                            <a href="#" class="text-right">forgot password?</a>
+                        </li>-->
+                        <li class="clearfix"></li>
+                    </ul>
+                    <ul class="list-login">
+                        <li>
+                            <a href="../Register/Register.xhtml" class="text-right" style="color: black;">Don't have an account?Register here.</a>
+                        </li>
+                        <li class="clearfix"></li>
+                    </ul>
+                </h:form>
+            </div>
+            <!-- //content bottom -->
+        </div>
+    </div>
+    <div class="copyright text-center">
+        <p>© 2018 Core Login Form. All rights reserved | Design by
+            <a href="http://w3layouts.com">W3layouts</a>
+        </p>
+    </div>
+    <!--//copyright-->
+    <script src="../resources/Login/js/jquery-2.2.3.min.js"></script>
+    <!-- script for show password -->
+    <script>
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") === "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+    </script>
+    
+    <!-- /script for show password -->
+    </ui:define>
+</ui:composition>

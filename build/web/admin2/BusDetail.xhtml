@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/admin2/AdminTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <style>
+            .updateicon
+            {
+                   color: grey;
+            }
+            td{
+                padding: 5px;
+             
+            }
+            th{
+                font-size: 18px;
+                border-bottom: 3px ridge #e1e1e1;
+            }
+            </style>
+<div class="main-panel">
+    <div class="content">
+	<div class="page-inner makeFlex">
+            <div class="row">
+                <div class="col-lg-12 landingCard landingCardheader">
+                    <h1>BusDetails List</h1>
+                </div>
+            </div><!--/.row-->
+            <f:view>
+                <h:form>
+
+    <div class="row landingCard">
+        <div align="right">
+            <h:link class="btn btn-primary" value="Insert" outcome="InsertBusDetail"></h:link>
+        </div>
+        <table data-toggle="table" style="margin-left: -9px;"  data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="Name" data-sortable="true">Name</th>
+                                            <th data-field="Seats"  data-sortable="true">TotalSeats</th>
+                                            <th data-field="City" data-sortable="true">FromCity</th>
+                                             <th data-field="State" data-sortable="true">ToCity</th>
+                                             <th data-field="State" data-sortable="true">CostPerSeat</th>
+                                             <th data-field="State" data-sortable="true">AvailableSeat</th>
+                                            <th data-field="Picture1" data-sortable="true">Picture</th>
+                                            <th data-field="Picture2" data-sortable="true">Picture</th>
+                                            <th data-field="Picture3" data-sortable="true">Picture</th>
+<!--                                            <th data-field="Description" data-sortable="true">Description</th>-->
+<th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+             <c:forEach items="#{adminManagedBean.findAllBus()}" var="H">
+                                    <tr>
+                                        <td>#{H.busName}</td>                                        
+                                        <td>#{H.totalSeats}</td>
+                                        <td>#{H.fromCityID.cityName}</td>
+                                        <td>#{H.toCityID.cityName}</td>
+                                        <td>#{H.costPerSeat}</td>                                        
+                                        <td>#{H.availableSeat}</td>
+                                        <!--<img src="../BusUpload/IMG_259476547110heritage.jpg" alt=""/>-->
+                                        <td><img src="../BusUpload/#{H.image1}" height="100" width="100"/></td>
+                                        <td><img src="../BusUpload/#{H.image2}" height="100" width="100"/></td>
+                                        <td><img src="../BusUpload/#{H.image3}" height="100" width="100"/></td>
+<!--                                        <td>#{H.description}</td>-->
+<!--                                        <td><h:commandLink class="fa fa-pencil fa-2x updateicon" action="#{restAdminManagedBean.EditHotel()}"></h:commandLink></td>-->
+                                        <td><h:commandLink class="fa fa-trash fa-2x updateicon" onclick="return confirm('Are you sure want to delete?')"
+                                                           action="#{adminManagedBean.deleteBus(H)}"></h:commandLink></td>
+                                    </tr>
+                                    </c:forEach>
+                                </table>
+    </div>
+    </h:form>
+</f:view>
+            
+        </div><!--/.main-->
+    </div>
+</div>
+	    </ui:define>
+</ui:composition>

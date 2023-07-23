@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/admin2/AdminTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <style>
+ 
+
+            </style>
+        <div class="main-panel">
+			<div class="content" >
+				<div class="page-inner  makeFlex">
+
+                  	<div class="row">
+                <div class="col-lg-12 landingCard landingCardheader">
+                    <h1>Insert Package</h1>
+                </div>
+            </div><!--/.row-->
+
+        <div class="row">
+                <div class="col-lg-12 landingCard">
+                    <div class="panel panel-default">
+                        
+                        <div class="panel-body" style="padding: 0px 80px 21px 80px;">
+                            
+                              <h:form role="form" enctype="multipart/form-data">
+                               
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <h:inputText class="form-control" id="txtHName" value="#{adminManagedBean.pname}">
+                                        </h:inputText>
+                                    </div>
+                                     <div class="form-group">
+                                        <h:outputLabel value="Category"></h:outputLabel>
+                                        <h:selectOneMenu class="form-control" value="#{adminManagedBean.catID}">
+                                            <f:selectItems value="#{adminManagedBean.categorylist}" var="b" 
+                                                           itemValue="#{b.categoryID}"
+                                                           itemLabel="#{b.categoryName}"></f:selectItems>
+                                         </h:selectOneMenu><br/>
+                                         
+                                    </div>
+                                     <div class="form-group">
+                                        <h:outputLabel value="State"></h:outputLabel>
+                                        <h:selectOneMenu class="form-control" value="#{adminManagedBean.staID}">
+                                            <f:selectItems value="#{adminManagedBean.statelist}" var="b" 
+                                                           itemValue="#{b.stateID}"
+                                                           itemLabel="#{b.stateName}"></f:selectItems>
+                                         </h:selectOneMenu><br/>
+                                         
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Bus"></h:outputLabel>
+                                        <h:selectOneMenu class="form-control" value="#{adminManagedBean.pbusID}">
+                                            <f:selectItems value="#{adminManagedBean.buslist}" var="b" 
+                                                           itemValue="#{b.busID}"
+                                                           itemLabel="#{b.busName}"></f:selectItems>
+                                         </h:selectOneMenu><br/>
+                                         
+                                    </div>
+                                     <div class="form-group">
+                                        <h:outputLabel value="Hotel"></h:outputLabel>
+                                        <h:selectOneMenu class="form-control" value="#{adminManagedBean.hotID}">
+                                            <f:selectItems value="#{adminManagedBean.hotellist}" var="b" 
+                                                           itemValue="#{b.hotelID}"
+                                                           itemLabel="#{b.hotelName}"></f:selectItems>
+                                         </h:selectOneMenu><br/>
+                                         
+                                    </div>
+				    <div class="form-group">
+                                          <label>No Of Days</label>
+                                          <h:inputText id="txtnodays" class="form-control" value="#{adminManagedBean.noOfDays}"/>
+                                    </div>
+                                         <div class="form-group">
+                                          <label>No Of Nights</label>
+                                          <h:inputText id="txtnonight" class="form-control" value="#{adminManagedBean.noOfNights}"/>
+                                    </div>
+                                     <div class="form-group">
+                                          <label>From date</label>
+                                          <h:inputText id="fd" class="form-control" value="#{adminManagedBean.fromDate}" converterMessage="Please provide from date in dd/mm/yyyy format">  
+                                                   <f:convertDateTime type = "date" pattern="dd/mm/yyyy" />  
+                                               </h:inputText>
+                                          </div>
+                                  <div class="form-group">
+                                          <label>To date</label>
+                                          <h:inputText id="td" class="form-control" value="#{adminManagedBean.toDate}" converterMessage="Please provide To date in dd/mm/yyyy format">  
+                                                   <f:convertDateTime type = "date" pattern="dd/mm/yyyy" />  
+                                               </h:inputText>
+                                          </div>
+                                     
+                                         <div class="form-group">
+                                          <label>Package Charge</label>
+                                          <h:inputText id="txtCharge" class="form-control" value="#{adminManagedBean.packCharge}"/>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                          <label>Image1</label>
+                                          <h:inputFile value="#{adminManagedBean.packagefile}" class="form-control"/>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                          <label>Image2</label>
+                                          <h:inputFile value="#{adminManagedBean.packagefile1}" class="form-control"/>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                          <label>Image3</label>
+                                          <h:inputFile value="#{adminManagedBean.packagefile2}" class="form-control"/>
+                                    </div>
+                                  <div class="form-group">
+                                          <label>Image4</label>
+                                          <h:inputFile value="#{adminManagedBean.packagefile3}" class="form-control"/>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                          <label>Description</label>
+                                          <h:inputTextarea id="description" value="#{adminManagedBean.scheDescription}" class="form-control"/>
+                                    </div>										
+                                    
+                                    
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h:commandButton class="btn btn-primary" value="Submit" action="#{adminManagedBean.addpackages()}"></h:commandButton>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </div>
+                                </div>
+                            </h:form>
+
+
+                        </div>
+                        </div>
+                    </div><!-- /.col-->
+		</div><!-- /.row -->                  
+ 
+
+        </div><!--/.main-->
+        </div>
+</div>
+	    </ui:define>
+</ui:composition>

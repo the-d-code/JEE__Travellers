@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        
+        <ui:include src="header.xhtml"></ui:include>
+        
+        
+    </h:head>
+    <h:body>
+            <h:form>
+         <main id="content" class="site-main">
+            <section class="inner-page-wrap">
+                <!-- ***Inner Banner html start form here*** -->
+                <div class="inner-banner-wrap">
+                    <div class="inner-baner-container" style="background-image: url(assets/images/img7.jpg);">
+                        <div class="container">
+                            <div class="inner-banner-content">
+                                <h1 class="page-title">CATEGORIES</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+        
+                <div class="inner-service-wrap">
+                        <div class="container">
+                            <div class="row">
+                                <c:forEach items="#{adminManagedBean.findAll()}" var="C">
+
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="icon-box " >
+                                            <li>  <img src="CategoryUpload/#{C.image}" class="bg-img-box" alt="" width="300" style="height:350px; background-color:#bae8e8 "/>
+                                                <div class="icon-box-content">
+                                                    <h3>#{C.categoryName}</h3>
+                                                    <h:commandButton class="round-btn" value="Discover Packages" action="#{adminManagedBean.GetPackageByCatID(C)}"/>
+
+
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+
+                
+                
+            </section><!-- comment -->
+         </main>
+            </h:form>     
+        
+        
+        <ui:include src="Footer.xhtml"></ui:include>
+    </h:body>
+</html>
+
