@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/Register/RegisterTemplate.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:p="http://primefaces.org/ui">
+                
+                
+    <ui:define name="content">
+         <style>
+            .ui-growl {   
+                        position:fixed;
+                        top: 20%;
+                        left: 37%;
+                        width: 360px;
+                        height: 110px;
+                        z-index:9999; 
+                    }
+        </style>
+        <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    
+                    
+                    <h:form>
+                        <h2 class="form-title">Create account</h2>
+                        <div class="form-group">
+                            <h:inputText id="fname" class="form-input" value="#{UserMangedBean.user.firstName}" validatorMessage="Enter valid First Name" a:placeholder="First Name" required="true" requiredMessage="Please Enter First Name">
+<!--                                <f:validateRegex pattern="^[a-zA-Z ]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$" />-->
+                            </h:inputText>
+                            <br/>
+    	                       <h:message for="fname" style="color:red" />
+    	                    <br/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="mname" class="form-input" value="#{UserMangedBean.user.middleName}" validatorMessage="Enter valid Middle Name" a:placeholder="Middle Name" required="true" requiredMessage="Please Enter Middle Name">
+<!--                                <f:validateRegex pattern="^[a-zA-Z ]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$" />-->
+                            </h:inputText>
+                             <br/>
+    	                       <h:message for="mname" style="color:red" />
+    	                    <br/>                           
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="lname" class="form-input" value="#{UserMangedBean.user.lastName}" validatorMessage="Enter valid Last Name" a:placeholder="Last Name" required="true" requiredMessage="Please Enter Last Name">
+<!--                                <f:validateRegex pattern="^[a-zA-Z ]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$" />-->
+                            </h:inputText>
+                            <br/>
+    	                       <h:message for="lname" style="color:red" />
+    	                    <br/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="email" class="form-input" value="#{UserMangedBean.user.emailID}" validatorMessage="Enter valid Email ID" a:placeholder="Email-ID" required="true" requiredMessage="Please Enter Email ID">
+<!--                                <f:validateRegex pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" />-->
+                            </h:inputText>
+                            <br/>
+    	                       <h:message for="email" style="color:red" />
+    	                    <br/>
+                        </div>
+                        <div class="form-group">
+                            <h:inputText id="cno" class="form-input" value="#{UserMangedBean.user.contactNumber}" validatorMessage="Enter valid Contact Number" a:placeholder="Contact" required="true" requiredMessage="Please Enter Contact Number">
+<!--                                <f:validateRegex pattern="[0-9]{3}[0-9]{3}[0-9]{4}" />-->
+                            </h:inputText>
+                            <br/>
+    	                       <h:message for="cno" style="color:red" />
+    	                    <br/>
+                        </div>
+                         <div class="form-group">
+                             <h:inputText id="password-field" class="form-input" value="#{UserMangedBean.user.password}" a:placeholder="Password" required="true" requiredMessage="Please Enter Password" />
+                         </div>
+                            <br/>
+    	                       <h:message for="password-field" style="color:red" />
+    	                    <br/> 
+                        <div class="form-group">
+                            <h:commandButton id="submit" value="Sign up" class="form-submit" action="#{UserMangedBean.registerUser()}"/>
+                        </div>
+                    </h:form>
+                    <p class="loginhere">
+                        Have already an account ? <a href="../Login/Login.xhtml" class="loginhere-link">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../resources/Register/vendor/jquery/jquery.min.js"></script>
+    <script src="../resources/Register/js/main.js"></script>
+    </ui:define>
+</ui:composition>

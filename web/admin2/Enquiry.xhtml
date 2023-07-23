@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/admin2/AdminTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <style>
+            .updateicon
+            {
+                   color: grey;
+            }
+            td{
+                padding: 7px;
+             
+            }
+            th{
+                font-size: 18px;
+                border-bottom: 3px ridge #e1e1e1;
+            }
+            </style>
+<div class="main-panel">
+    <div class="content">
+	<div class="page-inner makeFlex">
+            <div class="row">
+                <div class="col-lg-12 landingCard landingCardheader">
+                    <h1>Enquiry List</h1>
+                </div>
+            </div><!--/.row-->
+            <f:view>
+    <h:form class="row">
+        <div class="col-lg-12 card">
+    <div class="card-body">
+        <div class="chart-container" style="min-height: 375px">
+
+            <h:form class="row landingCard">
+
+
+                <h:dataTable value="#{loginBean.findAllEnquiry()}" var="item" style="width:100%;">
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="UserName"/>
+                        </f:facet>
+                        <h:outputText value="#{item.userID.firstName}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Message"/>
+                        </f:facet>
+                        <h:outputText value="#{item.message}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="UserEmailId"/>
+                        </f:facet>
+                        <h:outputText value="#{item.emailID}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ContactNo"/>
+                        </f:facet>
+                        <h:outputText value="#{item.contactNumber}"/>
+                    </h:column>
+
+                </h:dataTable>
+            </h:form>
+        </div>
+        <div id="myChartLegend"></div>
+    </div>
+</div>
+    </h:form>
+</f:view>
+            
+        </div><!--/.main-->
+    </div>
+</div>
+	    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,372 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <ui:include src="links.xhtml" />
+    </h:head>
+    <h:body>
+        <div class="wrapper">
+            <ui:include src="header.xhtml" />
+            <!-- Sidebar -->
+            <ui:include src="sidebar.xhtml" />
+            <!-- End Sidebar -->
+
+            <div class="main-panel">
+                <div class="content">
+                    <div class="page-inner">
+                        <div class="page-header">
+                            <h4 class="page-title">Dashboard</h4>
+                            <div class="btn-group btn-group-page-header ml-auto">
+                                <button type="button" class="btn btn-light btn-round btn-page-header-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <div class="arrow"></div>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card card-stats card-round">
+                                    <div class="card-body ">
+                                        <a href="package.xhtml">
+                                            <div class="row align-items-center">
+                                                <div class="col-icon">
+                                                    <div class="icon-big text-center icon-primary bubble-shadow-small">
+                                                        <i class="fas fa-users"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-stats ml-3 ml-sm-0">
+                                                    <div class="numbers">
+                                                        <p class="card-category">Packages</p>
+                                                        <h4 class="card-title">1,294</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card card-stats card-round">
+                                    <div class="card-body">
+                                        <a href="User.xhtml">
+                                            <div class="row align-items-center">
+                                                <div class="col-icon">
+                                                    <div class="icon-big text-center icon-info bubble-shadow-small">
+                                                        <i class="far fa-newspaper"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-stats ml-3 ml-sm-0">
+                                                    <div class="numbers">
+                                                        <p class="card-category">User</p>
+                                                        <h4 class="card-title">1303</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card card-stats card-round">
+                                    <div class="card-body">
+                                        <a href="BusDetail.xhtml">
+                                            <div class="row align-items-center">
+                                                <div class="col-icon">
+                                                    <div class="icon-big text-center icon-secondary bubble-shadow-small">
+                                                        <i class="far fa-check-circle"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-stats ml-3 ml-sm-0">
+                                                    <div class="numbers">
+                                                        <p class="card-category">Bus</p>
+                                                        <h4 class="card-title">576</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="card card-stats card-round">
+                                    <div class="card-body">
+                                        <a href="ManagHotel.xhtml">
+                                            <div class="row align-items-center">
+                                                <div class="col-icon">
+                                                    <div class="icon-big text-center icon-secondary bubble-shadow-small">
+                                                        <i class="far fa-check-circle"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-stats ml-3 ml-sm-0">
+                                                    <div class="numbers">
+                                                        <p class="card-category">Hotel</p>
+                                                        <h4 class="card-title">576</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card" style="height: 500px;">
+                                    <div class="card-header">
+                                        <div class="card-head-row">
+                                            <div class="card-title">Rating  Review</div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container" >
+
+                                            <h:form class="row landingCard">
+
+
+                                                <h:dataTable value="#{UserMangedBean.findAllReview()}" var="item">
+
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="UserName"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.userID.firstName}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="PackageName"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.packageID.packageName}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Review"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.description}"/>
+                                                    </h:column>
+                                                    <h:column>
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Rating"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.ratingStar}"/>
+                                                        <span class="star">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+
+
+                                                        </span>
+                                                    </h:column>
+
+
+                                                </h:dataTable>
+                                            </h:form>
+                                        </div>
+                                        <div id="myChartLegend"></div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-6">
+                                 <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-head-row">
+                                            <div class="card-title">Cancel Packages</div>
+
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive table-hover table-sales" style="height: 400px;">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th data-field="Name" data-sortable="true">Package Name</th>
+                                                        <th data-field="Seats"  data-sortable="true">UserName</th>
+
+                                                        <th data-field="State" data-sortable="true">Reason For Cancel</th>
+
+                                                        <th data-field="State" data-sortable="true">BookingDate</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <c:forEach items="#{UserMangedBean.findAllcaclebookPackage()}" var="H">
+                                                        <tr>
+
+                                                            <td>#{H.packageID.packageName}</td>
+                                                            <td class="text-right">
+                                                                #{H.userID.firstName}
+                                                            </td>
+                                                            <td class="text-right">
+                                                                #{H.reasonForCancel}
+                                                            </td>
+
+
+
+
+
+
+                                                            <td class="text-right">
+                                                                #{H.date}
+                                                            </td>
+                                                        </tr>
+
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-card-no-pd">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-head-row">
+                                            <h4 class="card-title">Top Packages</h4>
+                                            <div class="card-tools">
+                                                <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
+                                                <button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
+                                                <button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <div class="table-responsive table-hover table-sales  table-bordered" style="height: 600px;">
+                                                    <table class="table table-borderless table-hover table-sm" style="width: 96%;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th data-field="Name" data-sortable="true">Package Image</th>
+                                                                <th data-field="Seats"  data-sortable="true">PackageName</th>
+                                                                <th data-field="City" data-sortable="true">Package Charge</th>
+                                                                <th data-field="State" data-sortable="true">NoOfDays</th>
+                                                                <th data-field="State" data-sortable="true">Bus</th>
+                                                                <th data-field="State" data-sortable="true">FromDate</th>
+                                                                <th data-field="State" data-sortable="true">ToDate</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <c:forEach items="#{adminManagedBean.findAllPackage()}" var="H">
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="flag">
+
+                                                                            <img src="../PackageUpload/#{H.image1}" height="100" width="100"></img>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>#{H.packageName}</td>
+                                                                    <td class="text-right">
+                                                                        #{H.packageCharge}
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        #{H.noOfDays}
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        #{H.busID.busName}
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        #{H.fromDate}
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        #{H.toDate}
+                                                                    </td>
+                                                                </tr>
+
+                                                            </c:forEach>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title">Booked Packages</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive table-hover table-sales" style="height: 400px;">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th data-field="Name" data-sortable="true">Package Name</th>
+                                                        <th data-field="Seats"  data-sortable="true">UserName</th>
+                                                        <th data-field="City" data-sortable="true">EmailId</th>
+                                                        <th data-field="State" data-sortable="true">NoOfTravelers</th>
+                                                        <th data-field="State" data-sortable="true">ContactNumber</th>
+                                                        <th data-field="State" data-sortable="true">BookingDate</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <c:forEach items="#{UserMangedBean.findAllBookPackage()}" var="H">
+                                                        <tr>
+
+                                                            <td>#{H.packageID.packageName}</td>
+                                                            <td class="text-right">
+                                                                #{H.userID.firstName}
+                                                            </td>
+                                                            <td class="text-right">
+                                                                #{H.emailID}
+                                                            </td>
+                                                            <td class="text-right">
+                                                                #{H.noOfTravelers}
+                                                            </td>
+
+                                                            <td class="text-right">
+                                                                #{H.contactNumber}
+                                                            </td>
+
+
+                                                            <td class="text-right">
+                                                                #{H.bookingDate}
+                                                            </td>
+                                                        </tr>
+
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <ui:include src="ScriptLinks.xhtml" />
+    </h:body>
+</html>
+

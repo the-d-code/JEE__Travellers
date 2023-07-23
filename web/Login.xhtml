@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        
+        <ui:include src="header.xhtml"></ui:include>
+        
+        
+    </h:head>
+    <h:body>
+            <main id="content" class="site-main">
+            <section class="contact-inner-page">
+                 <!--***Inner Banner html start form here***--> 
+                <div class="inner-banner-wrap">
+                    <div class="inner-baner-container" style="background-image: url(assets/images/img7.jpg);">
+                        <div class="container">
+                            <div class="inner-banner-content">
+                                <h1 class="page-title">PROFILE</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <div align="right">
+        <h:link value="Home Page" outcome="home" />
+        </div>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="user" id="lbluser" value="User Name :"/>
+                <h:inputText id="user" value="#{login.username}"/>      
+                  <h:outputLabel for="pass" id="lblpass" value="Password :"/>
+                  <h:inputSecret id="pass" value="#{login.password}"/>      
+                  <h:commandButton id="sub" value="Submit" action="#{login.login()}"/>
+                <h:commandButton id="res" value="Reset"/>
+                
+                
+                
+            </h:panelGrid>
+            <br/>
+           <h:outputText id="msg" style="color:red" value="#{loginBean.message}"/> 
+            
+        </h:form>
+        </section> comment 
+            </main> comment 
+                <ui:include src="Footer.xhtml"></ui:include>
+            
+        
+    </h:body>
+</html>
+

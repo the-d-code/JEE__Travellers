@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Azzara Bootstrap 4 Admin Dashboard</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon"/>
+
+	<!-- Fonts and icons -->
+	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Open+Sans:300,400,600,700"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['../assets/css/fonts.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+	<!-- CSS Files -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="assets/css/azzara.min.css"></link>
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+        <link rel="stylesheet" href="assets/css/demo.css"></link> 
+    </h:head>
+    <h:body>
+        <ui:include src="/admin2/header.xhtml"></ui:include>
+        
+        <ui:include src="/admin2/sidebar.xhtml"></ui:include>
+        
+        <ui:insert name="content"></ui:insert>
+    </h:body>
+</html>
+

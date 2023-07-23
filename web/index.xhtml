@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+
+        <ui:include src="header.xhtml"></ui:include>
+
+<style>
+         .owl-classic .owl-dots {
+/*    margin-top: -314px;*/
+margin-top: 48px;
+}
+         .zoomimg:hover img {
+    transform: scale(0.9);
+}
+.section-btn-wrap {
+    padding-top: 10px;
+}
+a:visited {
+    text-decoration: none;
+    outline: 0;
+}
+.round-btn {
+    background-color: #3A78C9;
+    border: none;
+    color: #ffffff;
+    display: inline-block;
+    position: relative;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.outline-btn, .round-btn {
+    font-size: 16px;
+    line-height: 1.1;
+    padding: 17px 30px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+.btn-round a:hover{
+    background-color: blue;
+    color:white !important;
+    text-decoration: none;
+    outline: 0;
+}
+.overflowDash {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+         </style>
+    
+    </h:head>
+    <h:body>
+        <h:form>
+        <main id="content" class="site-main">
+            <!-- ***home banner html start form here*** -->
+            <section class="home-banner-section home-banner-slider">
+                <div class="home-banner d-flex flex-wrap align-items-center" style="background-image: url(assets/images/banner-img1.jpg);">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="banner-content text-center">
+                            <div class="row">
+
+                                <div class="col-lg-8 offset-lg-2">
+                                    <h2 class="banner-title">JOURNEY TO EXPLORE WORLD</h2>
+                                    <p>Ac mi duis mollis. Sapiente? Scelerisque quae, penatibus? Suscipit class corporis nostra rem quos voluptatibus habitant? Fames, vivamus minim nemo enim, gravida lobortis quasi, eum.</p>
+                                    <div class="banner-btn">
+                                        <a href="about.xhtml" class="round-btn">LEARN MORE</a>
+                                        <a href="booking.xhtml" class="outline-btn outline-btn-white">BOOK NOW</a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-banner d-flex flex-wrap align-items-center" style="background-image: url(assets/images/img7.jpg);">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="banner-content text-center">
+                            <div class="row">
+                                <div class="col-lg-8 offset-lg-2">
+                                    <h2 class="banner-title">BEAUTIFUL CATEGORY</h2>
+                                    <p>Ac mi duis mollis. Sapiente? Scelerisque quae, penatibus? Suscipit class corporis nostra rem quos voluptatibus habitant? Fames, vivamus minim nemo enim, gravida lobortis quasi, eum.</p>
+                                    <div class="banner-btn">
+                                        <a href="about.xhtml" class="round-btn">LEARN MORE</a>
+                                        <a href="booking.xhtml" class="outline-btn outline-btn-white">BOOK NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main><!-- comment -->
+
+
+        <section class="home-destination">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-sm-center">
+                        <div class="section-heading">
+                            <h5 class="sub-title">UNCOVER PLACE</h5>
+                            <h2 class="section-title">POPULAR DESTINATION CATEGORY</h2>
+                            <P>BY CLICK ON IT GET BEST FROM BEST</P>                        </div>
+                    </div>
+                </div>
+                <h:form>
+                    <div class="inner-service-wrap">
+                        <div class="container">
+                            <div class="row">
+                                <c:forEach items="#{adminManagedBean.findAll()}" var="C">
+
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="icon-box " >
+                                            <li>  <img src="CategoryUpload/#{C.image}" class="bg-img-box" alt="" width="300" style="height:350px; background-color:#bae8e8 "/>
+                                                <div class="icon-box-content">
+                                                    <h3>#{C.categoryName}</h3>
+                                                    <h:commandButton class="round-btn" value="Discover Packages" action="#{adminManagedBean.GetPackageByCatID(C)}"/>
+
+
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+
+                </h:form>
+            </div>
+        </section>
+
+        <!--***Home destination html end here*** -->-->
+        <!-- ***Home callback html start from here*** -->
+        <section class="home-callback bg-img-fullcallback" style="background-image: url(assets/images/img7.jpg);">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="callback-content">
+                            <div class="video-button">
+                                <a  id="video-container" data-fancybox="video-gallery" href="https://www.youtube.com/watch?v=2OYar8OHEOU">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                            <h2 class="section-title">ARE YOU READY TO TRAVEL? REMEMBER US !!</h2>
+                            <p>Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium. Sit ornare mollitia tenetur, aptent.</p>
+                            <div class="callback-btn">
+                                <a href="package.xhtml" class="round-btn">View Packages</a>
+                                <a href="about.xhtml" class="outline-btn outline-btn-white">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ***Home callback html end here*** -->
+        <!-- ***Home counter html start from here*** -->
+        <div class="home-counter">
+            <div class="container">
+                <div class="counter-wrap">
+                    <div class="counter-item">
+                        <span class="counter-no">
+                            <span class="counter">80</span>K+
+                        </span>
+                        <span class="counter-desc">
+                            SATISFIED CUSTOMER
+                        </span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-no">
+                            <span class="counter">18</span>+
+                        </span>
+                        <span class="counter-desc">
+                            ACTIVE MEMBERS
+                        </span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-no">
+                            <span class="counter">220</span>+
+                        </span>
+                        <span class="counter-desc">
+                            TOUR DESTINATION
+                        </span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-no">
+                            <span class="counter">75</span>+
+                        </span>
+                        <span class="counter-desc">
+                            TRAVEL GUIDES
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***Home counter html end here*** -->
+        <br/>
+        
+        
+        
+        
+        <!-- ***Home package html start from here*** -->
+        <section class="home-package">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-sm-center">
+                        <div class="section-heading">
+                            <h5 class="sub-title">POPULAR PACKAGES</h5>
+                            <h2 class="section-title">CHECKOUT OUR PACKAGES</h2>
+                            <p>If you find tours that are cheaper than ours, we will compensate the difference.</p>                        
+                        </div>
+                    </div>
+                </div>
+                <div class="package-section">
+                  
+                    <c:forEach items="#{adminManagedBean.fourpackages}" var="H">
+                        <div class="col-sm-6 col-md-12 wow fadeInRight">
+                        <article class="package-item">
+                            <figure class="package-image" style="background-image: url(PackageUpload/#{H.image1});"></figure>
+                            <div class="package-content">
+                                <h3>
+                                    <a href="">
+                                     #{H.packageName}
+                                    </a>
+                                </h3>
+                                  
+                                <p class="product-big-text overflowDash">#{H.scheduleDescription}</p>
+                                <div class="package-meta">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-clock"></i>
+                                             #{H.noOfDays}D/#{H.noOfNights}N
+                                        </li>
+                                        <!--<li>-->
+<!--                                            <i class="fas fa-user-friends"></i>
+                                            pax: 10-->
+                                        <!--</li>-->
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            #{H.categoryID.categoryName}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="package-price">
+                                <div class="review-area">
+                                    
+                                    <span class="review-text"></span>
+                                    <div class="rating-start-wrap d-inline-block">
+                                        <div class="rating-start">
+                                            <span style="width: 80%">#{myVar}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 class="price-list">
+                                    <span>₹#{H.packageCharge}</span>
+                                    / per person
+                                </h6>
+                                <h:commandButton class="outline-btn outline-btn-white" value="Discover Packages" action="#{UserMangedBean.GetPackageDesc(H)}"/>
+
+                                <!--<a href="booking.xhtml" class="outline-btn outline-btn-white">Book now</a>-->
+                            </div>
+                        </article>
+                        </div>
+                    </c:forEach>
+                    <div class="section-btn-wrap text-center">
+                        <a href="packages.xhtml" class="round-btn">VIEW ALL PACKAGES</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ***Home package html end here*** -->
+
+
+
+        <!-- ***Home client html start from here*** -->
+        <section class="home-client client-section" style="background-image: url(assets/images/banner-img1.jpg);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="client-content">
+                            <h5 class="sub-title">DISCOUNT OFFER</h5>
+                            <h2 class="section-title">GET SPECIAL DISCOUNT ON SIGN UP !</h2>
+                            <p>Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantm sit.</p>
+                            <a href="contact.xhtml" class="round-btn">Sign Up Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="client-logo">
+                            <ul>
+                                <li>
+                                    <img src="assets/images/client-img1.png" alt=""/>
+                                </li>
+                                <li>
+                                    <img src="assets/images/client-img2.png" alt=""/>
+                                </li>
+                                <li>
+                                    <img src="assets/images/client-img3.png" alt=""/>
+                                </li>
+                                <li>
+                                    <img src="assets/images/client-img4.png" alt=""/>
+                                </li>
+                                <li>
+                                    <img src="assets/images/client-img5.png" alt=""/>
+                                </li>
+                                <li>
+                                    <img src="assets/images/client-img6.png" alt=""/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </section>
+        </h:form>
+        <!-- ***Home client html end here*** -->
+
+        <ui:include src="Footer.xhtml"></ui:include>
+    </h:body>
+</html>
+

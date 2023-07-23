@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/admin2/AdminTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <style>
+            .updateicon
+            {
+                color: grey;
+            }
+            td{
+                padding: 7px;
+
+            }
+            th{
+                font-size: 18px;
+                border-bottom: 3px ridge #e1e1e1;
+            }
+        </style>
+        <div class="main-panel">
+            <div class="content">
+                <div class="page-inner makeFlex">
+                    <div class="row">
+                        <div class="col-lg-12 landingCard landingCardheader">
+                            <h1>Payment List</h1>
+                        </div>
+                    </div><!--/.row-->
+                    <f:view>
+
+
+                        <h:form class="row landingCard"> 
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <h:outputLabel value="Select Package to show payments"></h:outputLabel>
+                                    <h:selectOneMenu class="form-control" value="#{adminManagedBean.paymentPackageID}">
+                                        <f:selectItems value="#{adminManagedBean.packagelist}" var="b" 
+                                                       itemValue="#{b.packageID}"
+                                                       itemLabel="#{b.packageName}"></f:selectItems>
+                                    </h:selectOneMenu><br/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <h:commandButton class="btn btn-primary" style="margin-top: 19px;margin-left: -20px;" value="Submit" action="#{adminManagedBean.GetPaymentByPackageId()}"></h:commandButton>
+
+                                </div>
+                            </div>
+                            <h1><h:outputText value="List"/></h1>
+                            <h:dataTable value="#{adminManagedBean.payOFPackage}" var="item">
+
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Package Name"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.packageID.packageName}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="User Name"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.userID.firstName}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Amount"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.amount}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Date"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.date}">
+                                        <f:convertDateTime pattern="dd/mm/yyyy" />  
+                                    </h:outputText>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                    </f:view>
+
+                    <!--            <f:view>
+                        <h:form class="row landingCard">
+                           
+                            
+                            <h:dataTable value="#{loginBean.findAllPayment}" var="item">
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="User Name"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.userID.firstName}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Email Id"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.userID.emailID}"/>
+                                </h:column>
+                                 <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Package Name"/>
+                                    </f:facet>
+                                     <h:outputText value="#{item.packageID.packageName}"/>
+                                </h:column>
+                                 <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Amount"/>
+                                    </f:facet>
+                                     <h:outputText value="#{item.amount}"/>
+                                </h:column>
+                                 <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="User Name"/>
+                                    </f:facet>
+                                     <h:outputText value="#{item.date}"/>
+                                </h:column>
+                                 <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="User Name"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.userID.firstName}"/>
+                                </h:column>
+                                <h:column>
+                                    <h:commandLink class="fa fa-pencil fa-2x updateicon" action="#{adminManagedBean.editState(item)}"></h:commandLink>
+                                    
+                               </h:column>
+                               <h:column>
+                    
+                                <h:commandLink class="fa fa-trash fa-2x updateicon" onclick="return confirm('Are you sure want to delete?')"
+                                               action="#{adminManagedBean.deleteState(item)}"></h:commandLink>
+                               </h:column>
+                                
+                            </h:dataTable>
+                        </h:form>
+                    </f:view>-->
+
+                </div><!--/.main-->
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/admin2/AdminTemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <style>
+ 
+
+            </style>
+        <div class="main-panel">
+			<div class="content" >
+				<div class="page-inner  makeFlex">
+
+                  	<div class="row">
+                <div class="col-lg-12 landingCard landingCardheader">
+                    <h1>Insert BusDetails</h1>
+                </div>
+            </div><!--/.row-->
+
+        <div class="row">
+                <div class="col-lg-12 landingCard">
+                    <div class="panel panel-default">
+                        
+                        <div class="panel-body" style="padding: 0px 80px 21px 80px;">
+                            
+                              <h:form role="form" enctype="multipart/form-data">
+                              
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <h:inputText class="form-control" id="txtHName" validatorMessage="Enter only characters" value="#{adminManagedBean.busName}">
+                                        </h:inputText>
+                                    </div>
+				    <div class="form-group">
+                                          <label>total seats</label>
+                                          <h:inputText id="txtCpr" class="form-control" value="#{adminManagedBean.totalSeats}" title="Description" required="true" requiredMessage="The Description field is required."/>
+                                    </div>
+                                       
+                                    
+                                    <div class="form-group">
+                                        <h:outputLabel value="FromCity"></h:outputLabel>
+                                        <h:selectOneMenu class="form-control" value="#{adminManagedBean.fromCityID}">
+                                            <f:selectItems value="#{adminManagedBean.citylist}" var="b"
+                                                           itemLabel="#{b.cityName}"
+                                                           itemValue="#{b.cityID}"></f:selectItems>
+                                            </h:selectOneMenu>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <h:outputLabel value="ToCity"></h:outputLabel>
+                                        <h:selectOneMenu class="form-control" value="#{adminManagedBean.toCityID}">
+                                            <f:selectItems value="#{adminManagedBean.citylist}" var="b" 
+                                                           itemValue="#{b.cityID}"
+                                                           itemLabel="#{b.cityName}"></f:selectItems>
+                                         </h:selectOneMenu><br/>
+                                         
+                                    </div>
+                                    <div class="form-group">
+                                          <label>Cost per  seats</label>
+                                          <h:inputText id="txtCps" class="form-control" value="#{adminManagedBean.costPerSeat}" title="Description" required="true" requiredMessage="The Description field is required."/>
+                                    </div>
+                                 <div class="form-group">
+                                          <label>available seats</label>
+                                          <h:inputText id="txtavs" class="form-control" value="#{adminManagedBean.availableSeat}" title="Description" required="true" requiredMessage="The Description field is required."/>
+                                    </div>       
+                                    
+                                    
+                                     <div class="form-group">
+                                          <label>Image1</label>
+                                          <h:inputFile class="form-control" value="#{adminManagedBean.busfile}"/>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                          <label>Image1</label>
+                                          <h:inputFile class="form-control" value="#{adminManagedBean.busfile1}"/>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                          <label>Image1</label>
+                                          <h:inputFile class="form-control" value="#{adminManagedBean.busfile2}"/>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                          <label>Description</label>
+                                          <h:inputTextarea id="description" class="form-control" value="#{adminManagedBean.busdescription}" title="Description" required="true" requiredMessage="The Description field is required."/>
+                                    </div>										
+                                    
+                                    
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h:commandButton class="btn btn-primary" value="Submit" action="#{adminManagedBean.addBus()}"></h:commandButton>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </div>
+                                </div>
+                            </h:form>
+
+
+                        </div>
+                        </div>
+                    </div><!-- /.col-->
+		</div><!-- /.row -->                  
+ 
+
+        </div><!--/.main-->
+        </div>
+</div>
+	    </ui:define>
+</ui:composition>
